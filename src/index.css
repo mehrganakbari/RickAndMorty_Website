@@ -122,3 +122,11 @@ button {
   inset: 0;
   background-color: rgba(63, 69, 76, 0.8);
 }
+
+@media (min-width: 628px) {
+
+  .text-field::placeholder {
+    text-align: center;
+  }
+  
+}
