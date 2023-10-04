@@ -226,10 +226,13 @@
   }
 }
 
-@media (min-width: 628px) {
+@media (max-width: 768px) {
   .navbar,
   .main {
     flex-direction: column;
     gap: 15px;
+  }
+  .characters-list {
+    width: 100%;
   }
 }

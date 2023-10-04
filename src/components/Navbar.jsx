@@ -1,7 +1,7 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 
-function Navbar() {
+function Navbar({ numOfResult }) {
   return (
     <div className="navbar">
       <div className="navbar__logo">LOGO 😎</div>
@@ -10,7 +10,7 @@ function Navbar() {
         className="text-field"
         placeholder="search characters ..."
       />
-      <div className="navbar__result">Found X characters</div>
+      <div className="navbar__result">Found {numOfResult} characters</div>
       <button className="heart">
         <HeartIcon className="icon" />
         <span className="badge">X</span>
