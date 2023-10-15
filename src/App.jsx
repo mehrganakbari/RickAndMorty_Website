@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { allCharacters } from "../data/data";
 import CharacterList from "./components/CharacterList";
@@ -7,6 +7,16 @@ import "./App.css";
 
 function App() {
   const [characters, setCharacters] = useState(allCharacters);
+
+  useEffect(() => {
+    async function fetchData() {  
+      const res = await fetch("https://rickandmortyapi.com/api/character")
+      const data = await res.json();
+      setCharacters(data.results.slice(0,3))
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="app">
       <Navbar numOfResult={characters.length} />
