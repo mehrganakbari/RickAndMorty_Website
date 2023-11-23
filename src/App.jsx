@@ -1,9 +1,11 @@
 import { React, useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
 import { allCharacters } from "../data/data";
+import Navbar from "./components/Navbar";
 import CharacterList from "./components/CharacterList";
 import CharacterDetail from "./components/CharacterDetail";
 import "./App.css";
+import { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState(allCharacters);
@@ -11,17 +13,25 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true);
-      const res = await fetch("https://rickandmortyapi.com/api/character");
-      const data = await res.json();
-      setCharacters(data.results.slice(0, 3));
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get(
+          "https://rickandmortyapi.com/api/character"
+        );
+        setCharacters(data.results.slice(0, 5));
+      } catch (err) {
+        console.log(err.resonse.data.error);
+        toast.error(err.resonse.data.error);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchData();
   }, []);
 
   return (
     <div className="app">
+      <Toaster />
       <Navbar numOfResult={characters.length} />
       <Main characters={characters}>
         <CharacterList characters={characters} isLoading={isLoading} />
