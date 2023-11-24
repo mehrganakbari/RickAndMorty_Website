@@ -1,8 +1,5 @@
-# React + Vite
+Rick and Morty
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In this site, which is written with css, html and react Js, by using [Rick and Morty](https://rickandmortyapi.com) site APIs, we will show all the characters of this animation, which were in serial form, with the parts that were present in the animation.
+<br>
+You can search for your favorite characters in the search box and mark them and see them in the favorites section.
